@@ -16,8 +16,15 @@ class Game extends Model
     ];
 
     
-    public function scopeIndex($query) {
+    public function scopeIndex($query) 
+    {
         return $query;
     }
+
+    public function scopeSearchTitle($query, $searchTerm)
+    {
+        return $query->where("name", 'LIKE', "%{$searchTerm}%");
+    }
+
 
 }
