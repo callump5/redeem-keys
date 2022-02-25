@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Category;
+
 class Game extends Model
 {
     use HasFactory;
@@ -24,6 +26,12 @@ class Game extends Model
     public function scopeSearchTitle($query, $searchTerm)
     {
         return $query->where("name", 'LIKE', "%{$searchTerm}%");
+    }
+
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 
 

@@ -1,27 +1,33 @@
 <div class="game-gallery">
 
-    <div class="game-gallery__search">
-        <input  wire:model="search" type="text" placeholder="Search Game..."></input> 
+
+    <div  class="game-gallery__toolbar__categories">
+        <select name="_s_categories" id="">
+            <option value="">All</option>
+            @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+        </select>
     </div>
 
-    <div wire:loading>
-        Processing Payment...
+
+    <div class="game-gallery__toolbar__search">
+        <input  wire:model="search.name" type="text" placeholder="Search Game..."></input> 
     </div>
-    
-    <div wire:loading.remove>
-        <div class="game-gallery__results">
-        @foreach($data as $item)
-            <div class="game-gallery__results__item" >
-                <div class="game-gallery__results__item--cover-img">
-                    <img src="{{asset('images/default_cover.png')}}" alt=""  onmousemove="coverImgMouseMove(event)" onmouseleave="resetCoverImg(event)">
-                </div>
-                
-                <div class="game-gallery__results__item--title">
-                    <h4>{{$item->name}}</h4>
-                </div>
+
+
+    <div class="game-gallery__results">
+    @foreach($data as $item)
+        <div class="game-gallery__results__item" >
+            <div class="game-gallery__results__item--cover-img">
+                <img src="{{asset('images/default_cover.png')}}" alt=""  onmousemove="coverImgMouseMove(event)" onmouseleave="resetCoverImg(event)">
             </div>
-        @endforeach
-    </div>
+            
+            <div class="game-gallery__results__item--title">
+                <h4>{{$item->name}}</h4>
+            </div>
+        </div>
+    @endforeach
     </div>
 
     
