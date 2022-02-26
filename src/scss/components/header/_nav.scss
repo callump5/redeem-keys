@@ -1,0 +1,27 @@
+.rdk_header {
+
+    background-color: #212529 !important;
+    &__logo  {
+        max-width: 190px;
+    }
+
+    &__menu-item {
+
+        & a {
+            color: #f4b40580 !important;
+            
+            &:hover {
+                color: #f4b405 !important
+            }
+
+            &.active {
+                color: #f4b405 !important
+            }
+        }
+
+        & img {  
+            width: 40px !important;
+            filter: invert(1);
+        }     
+    }
+}

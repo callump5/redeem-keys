@@ -1,23 +1,24 @@
 
-@import 'base/reset';
-@import 'base/typography';
+// @import 'base/reset';
+// @import 'base/typography';
 
-@import 'abstracts/functions';
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
-@import 'abstracts/utilities';
+// @import 'abstracts/functions';
+// @import 'abstracts/variables';
+// @import 'abstracts/mixins';
+// @import 'abstracts/utilities';
 
-@import 'components/buttons';
-@import 'components/game-gallery';
+@import 'components/catalog/game-gallery';
+@import 'components/catalog/toolbar';
 
+@import 'components/header/nav';
 
-@import 'layout/footer';
-@import 'layout/forms';
-@import 'layout/grid';
-@import 'layout/header';
-@import 'layout/navigation';
-@import 'layout/sidebar';
-@import 'layout/landing';
+// @import 'layout/footer';
+// @import 'layout/forms';
+// @import 'layout/grid';
+// @import 'layout/header';
+// @import 'layout/navigation';
+// @import 'layout/sidebar';
+// @import 'layout/landing';
 
 
 body {

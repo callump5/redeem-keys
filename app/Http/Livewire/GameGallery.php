@@ -14,7 +14,9 @@ class GameGallery extends Component
     public $class;
     public $perPage = 10;
     public $search = [];
+ 
 
+    protected $paginationTheme = 'bootstrap';
 
     public function __construct($id = null)
     {

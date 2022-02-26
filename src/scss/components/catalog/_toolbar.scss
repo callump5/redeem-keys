@@ -1,0 +1,50 @@
+.rdk_catalog {
+
+
+    &__toolbar {
+
+
+        margin-bottom: 30px;
+
+        // & input,
+        // & select  {
+        //     background-color: #00000050;
+        //     padding: 15px;
+        //     border: none !important;
+        //     border-bottom: 2px solid #f4b405 !important;
+        //     color: #ffffff80;
+        //     border-radius:0
+    
+        // }
+
+        // & input:focus,
+        // & input:active,
+        // & select:focus,
+        // & select:active  {
+        //     background-color: #00000050 !important;
+        //     outline: none !important;
+        // }
+
+
+
+
+        // &__search {
+        //     position: relative;
+        //     & input {            
+        //         padding-left: 50px;
+        //     }
+        //     & i {
+        //         position: absolute;
+        //         color: #ffffff;
+        //         top: 50%;
+        //         left: 30px;
+        //         transform: translateY(-50%);
+        //     }
+        // }
+   
+    }
+}
+
+input::placeholder {
+    color: #ffffff80 !important;
+}

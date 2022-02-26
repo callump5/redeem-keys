@@ -1,0 +1,140 @@
+
+
+.game-gallery {
+
+
+
+    &__results {
+        display: grid;
+        grid: max-content / repeat(5, 1fr);
+        gap: 30px;
+        row-gap: 30px;
+
+        &__item {
+            &--cover-img {
+                margin-bottom: 20px;
+
+                & img {
+                    width: 100%;
+                    transition: all .1s;
+                    border-radius: 5px;
+                    // box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px
+                    box-shadow: 0px 0px 10px 4px #00000080;
+                    
+                }
+            }
+
+            &--title {
+                color: white !important;
+                font-size: 18px;
+            }
+
+
+
+
+            &:hover  {
+                transform: translateZ(12px);
+            }
+        }            
+    }
+
+
+}
+
+
+
+
+
+
+
+// $item-width: 230px;
+// $cols: 5;
+
+// $gallery-width: calc($cols * $item-width);
+// $padding: 40px;
+
+// $color-accent: #bdbdbd;
+// $color-text:  #282828;
+
+
+// .game-gallery {
+//     padding:80px 30px;
+
+//     background-color: #282828;
+//     width: $gallery-width;
+//     min-height: 100vh;
+//     margin: 0 auto;
+
+
+//     &__search {
+//         width: $gallery-width;
+//         max-width: 90%;
+//         margin: 0 auto 30px;
+//         padding: 20px;
+//         background-color: #00000050;
+//         border-radius: 3px;
+
+//         & input {
+//             background-color: #00000000;
+//             border: unset !important;
+//             padding: 10px 0 ;
+//             width: 100%;
+//             color: white ;
+//             border-bottom: 2px solid white !important;
+
+
+//             &:focus {
+//                 outline: none;
+//                 border:none
+//             }
+//         }
+
+//     }
+    
+//     &__results {
+//         max-width: 90%;
+//         margin: 0 auto;
+//         display: grid;
+//         grid: max-content / repeat($cols, 1fr);
+//         gap: 30px;
+//         row-gap: 50px;
+//         padding: 30px 0 ;
+
+    
+//         &__item {
+
+//             &--cover-img {
+//                 margin-bottom: 20px;
+
+//                 & img {
+//                     transition: all .1s;
+//                     border-radius: 5px;
+//                     // box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px
+//                     box-shadow: 0px 0px 10px 4px #00000080;
+                    
+//                 }
+//             }
+
+//             &--title {
+//                 color: white !important;
+//                 font-size: 18px;
+//             }
+
+
+
+
+//             &:hover  {
+//                 transform: translateZ(12px);
+//             }
+//         }
+    
+//     }
+
+
+
+
+// }
+
+// ::placeholder {
+//     color: #ffffff80;
+// }

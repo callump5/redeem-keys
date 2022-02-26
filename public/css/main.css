@@ -1,86 +1,14 @@
-/* Reset */
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  font-size: 62.5%;
-  overflow-x: hidden;
-}
-
-body {
-  box-sizing: border-box;
-  min-height: 100vh;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.u-container {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.u-gloss-back {
-  background-image: linear-gradient(141deg, #d3d3d3 0%, #c4c4c4 51%, #f0f0f0 75%);
-}
-
-.btn {
-  display: inline-block;
-  background-color: #bdbdbd;
-  color: #282828;
-  padding: 1rem 5rem;
-  border-radius: 50px;
-  font-size: 2rem;
-  margin-top: 2rem;
-}
-
-.game-gallery {
-  padding: 80px 30px;
-  background-color: #282828;
-  width: 1150px;
-  min-height: 100vh;
-  margin: 0 auto;
-}
-.game-gallery__search {
-  width: 1150px;
-  max-width: 90%;
-  margin: 0 auto 30px;
-  padding: 20px;
-  background-color: #00000050;
-  border-radius: 3px;
-}
-.game-gallery__search input {
-  background-color: #00000000;
-  border: unset !important;
-  padding: 10px 0;
-  width: 100%;
-  color: white;
-  border-bottom: 2px solid white !important;
-}
-.game-gallery__search input:focus {
-  outline: none;
-  border: none;
-}
 .game-gallery__results {
-  max-width: 90%;
-  margin: 0 auto;
   display: grid;
   grid: max-content/repeat(5, 1fr);
   gap: 30px;
-  row-gap: 50px;
-  padding: 30px 0;
+  row-gap: 30px;
 }
 .game-gallery__results__item--cover-img {
   margin-bottom: 20px;
 }
 .game-gallery__results__item--cover-img img {
+  width: 100%;
   transition: all 0.1s;
   border-radius: 5px;
   box-shadow: 0px 0px 10px 4px #00000080;
@@ -93,46 +21,32 @@ img {
   transform: translateZ(12px);
 }
 
-::placeholder {
-  color: #ffffff80;
+.rdk_catalog__toolbar {
+  margin-bottom: 30px;
 }
 
-.row {
-  max-width: 114rem;
-  margin: 0 auto;
+input::placeholder {
+  color: #ffffff80 !important;
 }
-.row:not(:last-child) {
-  margin-bottom: 2rem;
+
+.rdk_header {
+  background-color: #212529 !important;
 }
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
+.rdk_header__logo {
+  max-width: 190px;
 }
-.row [class^=col-] {
-  float: left;
+.rdk_header__menu-item a {
+  color: #f4b40580 !important;
 }
-.row [class^=col-]:not(:last-child) {
-  margin-right: 6rem;
-  float: left;
+.rdk_header__menu-item a:hover {
+  color: #f4b405 !important;
 }
-.row .col-1-of-2 {
-  width: calc((100% - 6rem) / 2);
+.rdk_header__menu-item a.active {
+  color: #f4b405 !important;
 }
-.row .col-1-of-3 {
-  width: calc((100% - 12rem) / 3);
-}
-.row .col-1-of-4 {
-  width: calc((100% - 18rem) / 4);
-}
-.row .col-2-of-3 {
-  width: calc(2 * (100% - 12rem) / 3 + 6rem);
-}
-.row .col-2-of-4 {
-  width: calc((100% - 6rem) / 2);
-}
-.row .col-3-of-4 {
-  width: calc(3 * (100% - 18rem) / 4 + 12rem);
+.rdk_header__menu-item img {
+  width: 40px !important;
+  filter: invert(1);
 }
 
 body {
