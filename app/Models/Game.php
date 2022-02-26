@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Category;
+use App\Models\Game;
 
 class Game extends Model
 {
@@ -22,7 +23,7 @@ class Game extends Model
     {
         return $query;
     }
-
+    
     public function scopeSearchTitle($query, $searchTerm)
     {
         return $query->where("name", 'LIKE', "%{$searchTerm}%");
@@ -34,5 +35,10 @@ class Game extends Model
         return $this->belongsToMany(Category::class);
     }
 
+
+    public function platforms()
+    {
+        return $this->belongsToMany(Platform::class);
+    }
 
 }

@@ -1,14 +1,25 @@
 <div class="game-gallery">
 
+    @dump($search)
 
     <div  class="game-gallery__toolbar__categories">
-        <select name="_s_categories" id="">
+        <select wire:model="search.category" name="s_categories" id="">
             <option value="">All</option>
             @foreach($categories as $category)
                 <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
     </div>
+
+    <div  class="game-gallery__toolbar__platforms">
+        <select wire:model="search.platform" name="s_platforms" id="">
+            <option value="">All</option>
+            @foreach($platforms as $platform)
+                <option value="{{$platform->id}}">{{$platform->name}}</option>
+            @endforeach
+        </select>
+    </div>
+
 
 
     <div class="game-gallery__toolbar__search">
