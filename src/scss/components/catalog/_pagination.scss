@@ -1,0 +1,35 @@
+.game-gallery__pagination {
+
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-end;
+
+    & select {
+        min-width: 60px;
+        max-width: 60px;
+    }
+    & button, 
+    & select {
+        padding: 10px;
+        line-height:1;
+        border: none;
+        margin: 0 10px 0 0;
+        display: inline-block;
+        background-color: #00000030;
+        border-radius: 10px;
+        color: #f4b40590;
+        font-size: 14px;
+        transition: all .3s;
+    }
+
+    & select:not(.disabled):hover,
+    & button:not(.disabled):hover {
+        color: #f4b405;
+    }
+
+    & nav {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+}

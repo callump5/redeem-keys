@@ -1,9 +1,22 @@
-.btn {
-    display: inline-block;
-    background-color: $color-accent;
-    color: $color-text;
-    padding:1rem 5rem;
-    border-radius: 50px;
-    font-size: 2rem;
-    margin-top: 2rem;
+.rdk-btn {
+    padding: 10px !important;
+    line-height:1 !important;
+    border: none !important;
+    margin: 0 10px 0 0 !important;
+    background-color: #00000030 !important;
+    border-radius: 10px !important;
+    color: #f4b40590 !important;
+    font-size: 14px !important;
+    transition: all .3s !important;
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+    
+    & i {  
+        position: relative;
+        top: 0px;
+        width: 12px !important;
+        display: inline-block;
+        left: -3px;
+    }
 }

@@ -1,4 +1,4 @@
-<nav class="rdk_header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+<nav class="rdk_header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" style='padding: 10px ' id="mainNav">
     
     <div class="container px-5">
         <a class="navbar-brand fw-bold" href="#page-top"><img class="rdk_header__logo" src="{{ asset('images/' . $logo)}}"/></a>

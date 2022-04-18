@@ -10,16 +10,16 @@ class Navigation extends Component
     public $logo = "logo-transparent-2.png";
     public $menu = [
         [
+            "name" => "pc", 
+            "icon" => "PC-ICON.png"
+        ],
+        [
             "name" => "xbox", 
             "icon" => "XBOX-ICON.png"
         ],
         [
             "name" => "playstation", 
             "icon" => "PS-ICON-2.png"
-        ],
-        [
-            "name" => "pc", 
-            "icon" => "PC-ICON.png"
         ],
         [
             "name" => "nintendo", 

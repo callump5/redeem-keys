@@ -1,0 +1,52 @@
+.rdk-range-slider {
+    position: relative;
+    margin: 0 5px 0 0;
+    & .ui-slider-handle {
+        width: 6px !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        position: relative;
+        top: -11px;
+        height: 25px !important;
+    }
+
+    & .ui-slider  {
+        margin-top: 4px;
+        border-color: 1px solid #525252 !important;
+        height: 2px !important;
+    }
+
+    & .ui-widget.ui-widget-content {
+        border-color: #525252 !important;
+    }
+
+    &--toggle {
+        min-height: 62px;
+    }
+    // &::before,
+    // &::after {
+    //     position: absolute;
+    //     color: white;
+    //     bottom: -25px;
+    // }
+    
+    // &::before {
+    //     content: "0";
+    //     left: 0;
+    //     transform: translateX(-20%);
+    
+    
+    
+    // }
+
+    // &::after {
+    //     content: "100";
+    //     transform: translateX(60%);
+    
+    //     right: 0;
+    // }
+
+}
+
+
+

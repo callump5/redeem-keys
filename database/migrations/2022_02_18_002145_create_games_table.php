@@ -17,8 +17,12 @@ class CreateGamesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name')->required();
-            $table->float('price', 8, 2);
-            $table->text('description');
+            $table->string('img_path')->nullable();;
+            $table->float('price', 8, 2)->nullable();
+            $table->text('description')->nullable();;
+            $table->string('type')->nullable();
+            $table->string('cdkeys_link')->unique()->nullable();
+            $table->string('g2a_link')->unique()->nullable();
         });
     }
 

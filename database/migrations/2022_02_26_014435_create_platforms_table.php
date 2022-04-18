@@ -17,6 +17,7 @@ class CreatePlatformsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string("name")->required();
+            $table->foreignId('parent_id')->nullable()->constrained('platforms');
         });
     }
 

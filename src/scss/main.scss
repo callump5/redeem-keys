@@ -6,11 +6,12 @@
 // @import 'abstracts/variables';
 // @import 'abstracts/mixins';
 // @import 'abstracts/utilities';
-
+@import 'components/buttons';
 @import 'components/catalog/game-gallery';
 @import 'components/catalog/toolbar';
-
+@import 'components/catalog/pagination';
 @import 'components/header/nav';
+@import 'components/inputs/multi-slider';
 
 // @import 'layout/footer';
 // @import 'layout/forms';
@@ -26,4 +27,15 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+}
+
+*,
+.font-alt {
+    font-family: "Poppins" !important;
+    font-weight: 300 !important;
+}
+
+
+.rdk-page {
+    margin-top: 83px;
 }
