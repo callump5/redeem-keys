@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Frontend;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -124,7 +124,7 @@ class GameGallery extends Component
 
 
         // Return the view with pagination
-        return view("livewire.game-gallery")->with([
+        return view("livewire.frontend.game-gallery")->with([
             "data" => $data->paginate($this->perPage)
         ]);
     }

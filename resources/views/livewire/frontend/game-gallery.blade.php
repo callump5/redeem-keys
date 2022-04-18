@@ -27,7 +27,7 @@
                     <option>20</option>
                     <option>40</option>
                 </select>
-                {{$data->links('catalog.pagination')}}
+                {{$data->links('partials.frontend.catalog.pagination')}}
             </div>
         </div>
 
@@ -80,16 +80,16 @@
                 @endisset
 
                 <!-- Search By Title -->
-                <x-filter.search label="Title"></x-filter.search>
+                <x-frontend.filter.search label="Title"></x-frontend.filter.search>
 
                 <!-- Category Select -->
 {{--                <x-filter.dropdown label="Categories" :params=$search name="category" :items=$categories></x-filter.dropdown>--}}
 
                 <!-- Platform Select -->
-                <x-filter.dropdown label="Platforms" :params=$search name="platform"  :items=$platforms></x-filter.dropdown>
+                <x-frontend.filter.dropdown label="Platforms" :params=$search name="platform"  :items=$platforms></x-frontend.filter.dropdown>
 
                 <!-- Platform Select -->
-                <x-filter.dropdown label="Collections" :params=$search name="collection"  :items=$collections></x-filter.dropdown>
+                <x-frontend.filter.dropdown label="Collections" :params=$search name="collection"  :items=$collections></x-frontend.filter.dropdown>
 
                 <!-- Shop Filters -->
                 <div class="rdk_catalog__toolbar__filter">

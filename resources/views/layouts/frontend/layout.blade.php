@@ -14,11 +14,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
-        
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap" rel="stylesheet"> 
-        
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap" rel="stylesheet">
+
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
@@ -28,17 +28,17 @@
 
     </head>
     <body id="page-top">
-        
+
         <!-- Navigation-->
 
         <!-- Page Content -->
         <div class="container">
-            <x-navigation></x-navigation>  
+            <x-frontend.navigation></x-frontend.navigation>
             <div class="rdk-page">
                 @yield('content')
             </div>
         </div>
-     
+
         <!-- Footer-->
         <footer class="bg-black text-center py-5">
             <div class="container px-5">
@@ -120,7 +120,7 @@
         </div>
         <!-- Bootstrap core JS-->
         <script src="js/bootstrap.bundle.min.js"></script>
-        
+
         <!-- Core theme JS-->
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
@@ -134,7 +134,7 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
-                
+
         @livewireScripts
         <script id="__bs_script__">
         //<![CDATA[

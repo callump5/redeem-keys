@@ -9,17 +9,17 @@
         @foreach($items as $item)
             @if($item->children)
                 <div class="rdk_catalog__toolbar__filter__header" onclick="toggleOpen(this)">
-                    <x-filter.dropdown-item :params=$params :name=$name :item=$item></x-filter.dropdown-item>
+                    <x-frontend.filter.dropdown-item :params=$params :name=$name :item=$item></x-frontend.filter.dropdown-item>
                     <i class="bi bi-chevron-down"></i>
                 </div>
 
                 <div class="rdk_catalog__toolbar__filter__content">
                     @foreach($item->children as $child)
-                        <x-filter.dropdown-item :params=$params :name=$name :item=$child child="true"></x-filter.dropdown-item>
+                        <x-frontend.filter.dropdown-item :params=$params :name=$name :item=$child child="true"></x-frontend.filter.dropdown-item>
                     @endforeach
                 </div>
             @else
-                <x-filter.dropdown-item :params=$params :name=$name :item=$item></x-filter.dropdown-item>
+                <x-frontend.filter.dropdown-item :params=$params :name=$name :item=$item></x-frontend.filter.dropdown-item>
             @endif
         @endforeach
     </div>

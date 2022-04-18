@@ -1,29 +1,29 @@
-@extends('index')
+@extends('layouts.frontend.layout')
 
 
 @section('content')
 <!-- Mashead header-->
-    <header class="masthead" style="margin-top: 80px; padding: 280px 0; background-image: url({{asset('images/hero2.jpg')}}); background-size: cover; background-position:center;">
-        <div class="container px-5">
-            {{-- <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <!-- Mashead text and app badges-->
-                    <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                        <h1 class="display-1 lh-1 text-white">Baldurs Gate 3</h1>
-                        <h4 class="display-6 lh-1 mb-3 text-white">Preorder now and get 10% off</h4>
-                        <p class="lead mb-5 text-white">Launch your mobile app landing page faster with this free, open source theme from Start Bootstrap!</p>
-                        <div class="d-flex flex-column flex-lg-row align-items-center">
-                            <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." /></a>
-                            <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="..." /></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <!-- Masthead device mockup feature-->
-                </div>
-            </div> --}}
-        </div>
-    </header>
+{{--<header class="masthead" style="margin-top: 80px; padding: 280px 0; background-image: url({{asset('images/hero2.jpg')}}); background-size: cover; background-position:center;">--}}
+{{--        <div class="container px-5">--}}
+{{--            --}}{{-- <div class="row align-items-center">--}}
+{{--                <div class="col-lg-7">--}}
+{{--                    <!-- Mashead text and app badges-->--}}
+{{--                    <div class="mb-5 mb-lg-0 text-center text-lg-start">--}}
+{{--                        <h1 class="display-1 lh-1 text-white">Baldurs Gate 3</h1>--}}
+{{--                        <h4 class="display-6 lh-1 mb-3 text-white">Preorder now and get 10% off</h4>--}}
+{{--                        <p class="lead mb-5 text-white">Launch your mobile app landing page faster with this free, open source theme from Start Bootstrap!</p>--}}
+{{--                        <div class="d-flex flex-column flex-lg-row align-items-center">--}}
+{{--                            <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." /></a>--}}
+{{--                            <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="..." /></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-5">--}}
+{{--                    <!-- Masthead device mockup feature-->--}}
+{{--                </div>--}}
+{{--            </div> --}}
+{{--        </div>--}}
+{{--    </header>--}}
 
 
     <!-- Quote/testimonial aside-->
@@ -44,7 +44,7 @@
 
     <section class="bg-dark">
         <div class="container px-5">
-            <livewire:game-gallery class="\App\Models\Game"></livewire:game-gallery>
+            <livewire:frontend.game-gallery class="\App\Models\Game"></livewire:frontend.game-gallery>
         </div>
     </section>
 
