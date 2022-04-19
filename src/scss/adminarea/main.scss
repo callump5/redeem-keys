@@ -1,0 +1,30 @@
+.min-h-screen {
+    height: 100vh;
+}
+
+.bg-main { background-color: #2F3734;}
+
+.bg-secondary {
+    background-color: #808080 !important;
+}
+
+.no-padd {
+    padding: 0;
+}
+
+.no-marg {
+    margin: 0;
+}
+
+*{
+    font-family: Poppins;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+body .accordion-button::after {
+    filter: invert(1);
+}

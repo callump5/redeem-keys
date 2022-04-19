@@ -3,6 +3,9 @@
 use App\Models\Scraper;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Frontend\StoreController;
+use App\Http\Controllers\Adminarea\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +17,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
 
-// TODO:: Add this to a controller
-Route::get('/', function () {
-    return view('pages/frontend/home');
+// Store Views
+Route::get('/', [StoreController::class, 'home']);
+
+// Admin Views
+Route::prefix('admin')->group(function () {
+    Auth::routes();
+
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/dashboard', [DashboardController::class, 'home'])
+            ->name('admin.dashboard');
+    });
 });
+
+// Redirects
+Route::redirect('/admin', '/admin/dashboard');
+
+
 
 // TODO:: This is for testing and wil be removed
 Route::get('/build-and-scrape', function() {
@@ -28,11 +43,4 @@ Route::get('/build-and-scrape', function() {
     $scraper->scrapeList();
 });
 
-
-Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', [\App\Http\Controllers\Adminarea\DashboardController::class, 'index'])
-        ->name('admin.dashboard');
-});
-
 //Route::resource(‘gfg’, ‘GeeksforGeeksController’);
-

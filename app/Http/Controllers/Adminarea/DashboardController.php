@@ -8,7 +8,7 @@ use function view;
 class DashboardController extends Controller
 {
 
-    public function index(){
+    public function home(){
         return view('pages.adminarea.dashboard');
     }
 }
