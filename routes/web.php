@@ -1,11 +1,16 @@
 <?php
 
-use App\Models\Scraper;
 use Illuminate\Support\Facades\Route;
+
+use App\Models\Scraper;
 
 use App\Http\Controllers\Frontend\StoreController;
 use App\Http\Controllers\Adminarea\DashboardController;
 
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PlatformController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +34,11 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'home'])
             ->name('admin.dashboard');
     });
+
+    Route::resource('games', GameController::class);
+    Route::resource('platforms', PlatformController::class);
+    Route::resource('collections', CollectionController::class);
+    Route::resource('categories', CategoryController::class);
 });
 
 // Redirects

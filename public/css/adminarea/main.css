@@ -18,6 +18,15 @@
   margin: 0;
 }
 
+.table-max-height {
+  max-height: 87vh;
+  overflow: auto;
+}
+
+.va-middle {
+  vertical-align: middle;
+}
+
 * {
   font-family: Poppins;
 }
@@ -29,6 +38,20 @@ a {
 
 body .accordion-button::after {
   filter: invert(1);
+}
+body .accordion-button:focus {
+  box-shadow: none !important;
+}
+body table, body thead, body tbody, body tr, body td, body th {
+  border-color: #ffb30029 !important;
+}
+body .table-hover > tbody > tr:hover > * {
+  color: #ffffff;
+  opacity: 1;
+}
+body .table-hover > tbody > tr > * {
+  opacity: 0.5;
+  transition: all 0.05s !important;
 }
 
 /*# sourceMappingURL=main.css.map */

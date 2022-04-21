@@ -1,10 +1,9 @@
 @extends('layouts.adminarea.layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+    <div class="row h-100 justify-content-center align-items-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card bg-dark text-white">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
@@ -19,5 +18,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

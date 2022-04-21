@@ -32,13 +32,13 @@ class Navigation extends Component
                             [
                                 'title' => 'List',
                                 'type'  => 'item',
-                                'url'   => 'games/list',
+                                'url'   => route('games.index'),
                                 'id'    => ''
                             ],
                             [
                                 'title' => 'Create New',
                                 'type'  => 'item',
-                                'url'   => 'games/list',
+                                'url'   => route('games.create'),
                                 'id'    => ''
                             ]
                         ]
@@ -51,13 +51,13 @@ class Navigation extends Component
                             [
                                 'title' => 'List',
                                 'type'  => 'item',
-                                'url'   => 'games/list',
+                                'url'   => route('collections.index'),
                                 'id'    => ''
                             ],
                             [
                                 'title' => 'Create New',
                                 'type'  => 'item',
-                                'url'   => 'games/list',
+                                'url'   => route('collections.create'),
                                 'id'    => ''
                             ]
                         ]
@@ -70,13 +70,13 @@ class Navigation extends Component
                             [
                                 'title' => 'List',
                                 'type'  => 'item',
-                                'url'   => 'games/list',
+                                'url'   => route('platforms.index'),
                                 'id'    => ''
                             ],
                             [
                                 'title' => 'Create New',
                                 'type'  => 'item',
-                                'url'   => 'games/list',
+                                'url'   => route('platforms.create'),
                                 'id'    => ''
                             ]
                         ]
@@ -89,16 +89,28 @@ class Navigation extends Component
                             [
                                 'title' => 'List',
                                 'type'  => 'item',
-                                'url'   => 'games/list',
+                                'url'   => route('categories.index'),
                                 'id'    => ''
                             ],
                             [
                                 'title' => 'Create New',
                                 'type'  => 'item',
-                                'url'   => 'games/list',
+                                'url'   => route('categories.create'),
                                 'id'    => ''
                             ]
                         ]
+                    ]
+                ]
+            ],
+            'settings' => [
+                'title' => 'Settings',
+                'type'  => 'group',
+                'items' => [
+                    'logout' => [
+                        'title' => 'Config',
+                        'type'  => 'item',
+                        'url'   => '/',
+                        'id'    => 'config'
                     ]
                 ]
             ],

@@ -1,6 +1,6 @@
 <li class="accordion-item bg-dark border-0">
     <h2 class="accordion-header bg-dark" id="flush-headingOne">
-        <button class="accordion-button bg-dark text-white no-padd py-3 collapsed" style="font-size: 19px" type="button" data-bs-toggle="collapse" data-bs-target="#flush-{{$menu['id']}}" aria-expanded="false" aria-controls="flush-{{$menu['id']}}">
+        <button class="accordion-button bg-dark text-white no-padd py-3 collapsed" style="font-size: 17px" type="button" data-bs-toggle="collapse" data-bs-target="#flush-{{$menu['id']}}" aria-expanded="false" aria-controls="flush-{{$menu['id']}}">
             {{$menu['title']}}
         </button>
     </h2>

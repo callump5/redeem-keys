@@ -16,6 +16,15 @@
     margin: 0;
 }
 
+.table-max-height{
+    max-height: 87vh;
+    overflow: auto;
+}
+
+.va-middle{
+    vertical-align: middle;
+}
+
 *{
     font-family: Poppins;
 }
@@ -25,6 +34,25 @@ a {
     text-decoration: none;
 }
 
-body .accordion-button::after {
-    filter: invert(1);
+body {
+    & .accordion-button::after {
+        filter: invert(1);
+    }
+
+    & .accordion-button:focus {
+        box-shadow: none !important;
+    }
+
+    & table, & thead, & tbody, & tr, & td, & th, {
+        border-color: #ffb30029 !important;
+    }
+
+    & .table-hover > tbody > tr:hover > * {
+        color: #ffffff;
+        opacity: 1;
+    }
+    & .table-hover > tbody > tr > * {
+        opacity: .5;
+        transition: all .05s !important;
+    }
 }

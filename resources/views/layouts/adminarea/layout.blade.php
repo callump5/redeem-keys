@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ asset('css/lib/jquery-ui.min.css') }}" rel="stylesheet">
@@ -28,8 +29,11 @@
 
     <x-adminarea.navigation></x-adminarea.navigation>
 
-    <div class="col-10 bg-main">
-        <main class="py-4">
+    <div class="col-10 h-100 bg-main">
+        <div class="bg-black py-3 px-3">
+            <p class="no-marg text-white">This will be a quick search bar</p>
+        </div>
+        <main class="container py-4">
             @yield('content')
         </main>
     </div>
