@@ -11,7 +11,7 @@
                         </div>
                         <div class="game-gallery__results__item--content">
                             <h6 class="font-alt text-white">{{$item->name}}</h6>
-                            <p class="text-muted small price"><span class="currency">£</span>{{$item->price}}</p>
+                            <p class="text-muted small price"><span class="currency">£</span>{{$item->cdkeys_price}}</p>
                         </div>
                     </div>
                 @endforeach

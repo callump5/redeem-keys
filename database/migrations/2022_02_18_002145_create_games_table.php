@@ -21,7 +21,12 @@ class CreateGamesTable extends Migration
             $table->float('price', 8, 2)->nullable();
             $table->text('description')->nullable();;
             $table->string('type')->nullable();
+
+
+            $table->float('cdkeys_price', 8, 2)->nullable();
             $table->string('cdkeys_link')->unique()->nullable();
+
+            $table->float('g2a_price', 8, 2)->nullable();
             $table->string('g2a_link')->unique()->nullable();
         });
     }

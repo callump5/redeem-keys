@@ -14,6 +14,11 @@ class Platform extends Model
         'name'
     ];
 
+    public function scopeIndex($query)
+    {
+        return $query;
+    }
+
     public function games()
     {
         return $this->belongsToMany(Game::class);

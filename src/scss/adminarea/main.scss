@@ -1,13 +1,19 @@
-.min-h-screen {
+
+.bg-main { background-color: #151521;}
+
+.bg-secondary,
+.bg-dark{
+    background-color: #1a1a27 !important;
+}
+
+.vh-100 {
     height: 100vh;
 }
 
-.bg-main { background-color: #2F3734;}
-
-.bg-secondary {
-    background-color: #808080 !important;
+.rdk-overflow{
+    overflow: auto;
+    height: calc(100vh - 167px);
 }
-
 .no-padd {
     padding: 0;
 }
@@ -27,11 +33,16 @@
 
 *{
     font-family: Poppins;
+    text-decoration: none !important;
+
+}
+::selection {
+    background-color: cyan !important;
 }
 
-a {
+
+ nav a {
     color: white;
-    text-decoration: none;
 }
 
 body {
@@ -56,3 +67,50 @@ body {
         transition: all .05s !important;
     }
 }
+
+
+form {
+    & .form-control,
+    & label,
+    & .form-select,
+    & .form-control{
+    }
+
+    & .select2-container--default .select2-selection--multiple,
+    & .select2-selection__clear span,
+    & input,
+    & select, {
+        background-color: #303049 !important;
+        border: none !important;
+        color: #d0d0d0 !important;
+    }
+
+
+    & .select2-dropdown.select2-dropdown--above,
+    & .select2-dropdown,
+    & .select2-results__options,
+    & .select2-selection__choice {
+        background-color: #1a1a27 !important;
+        border: none !important;
+        color: #d0d0d0 !important;
+    }
+
+    & .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+        border-right: none !important;
+    }
+
+    & .select2::placeholder {
+        color: #6c757d !important;
+        opacity: 1;
+    }
+
+
+    & .select2-selection__choice span {
+        color: #d0d0d0 !important;
+    }
+
+    .form-control:focus {
+        box-shadow: none !important;
+    }
+}
+

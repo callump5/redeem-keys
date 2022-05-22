@@ -31,14 +31,16 @@ Route::prefix('admin')->group(function () {
     Auth::routes();
 
     Route::group(['middleware' => ['auth']], function () {
+
         Route::get('/dashboard', [DashboardController::class, 'home'])
             ->name('admin.dashboard');
+
+        Route::resource('games', GameController::class);
+        Route::resource('platforms', PlatformController::class);
+        Route::resource('collections', CollectionController::class);
+        Route::resource('categories', CategoryController::class);
     });
 
-    Route::resource('games', GameController::class);
-    Route::resource('platforms', PlatformController::class);
-    Route::resource('collections', CollectionController::class);
-    Route::resource('categories', CategoryController::class);
 });
 
 // Redirects
@@ -51,6 +53,13 @@ Route::get('/build-and-scrape', function() {
     $scraper = new Scraper();
     $scraper->buildList("https://www.cdkeys.com/pc?p=");
     $scraper->scrapeList();
+    return redirect('/admin/games');
 });
 
-//Route::resource(‘gfg’, ‘GeeksforGeeksController’);
+Route::get('/test', function() {
+    $scraper = new Scraper();
+    $scraper->setPage("https://www.g2a.com/search/api/v3/suggestions");
+    $page = $scraper->getTestPage("GET");
+
+    dd($page);
+});

@@ -28,9 +28,20 @@ class Scraper extends Model
                     "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/50.0.2661.102 Safari/537.36\r\n" . "accept: text/html,application/xhtml+xml,application/xml;q=0.9, image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\r\n" . "accept-language: es-ES,es;q=0.9,en;q=0.8,it;q=0.7\r\n" .  "accept-encoding: gzip, deflate, br\r\n"
                ]
             ]
-        );
-    }
 
+        );
+        $this->client->setServerParameter("HTTP_USER_AGENT", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:73.0) Gecko/20100101 Firefox/73.0");
+        $this->client->setServerParameter("User-Agent", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:73.0) Gecko/20100101 Firefox/73.0");
+        $this->client->setServerParameter("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8");
+        $this->client->setServerParameter("accept-language", "en-GB,en;q=0.5");
+        $this->client->setServerParameter("accept-encoding", "gzip, deflate, br");
+        $this->client->setServerParameter("host", "www.g2a.com");
+        $this->client->setServerParameter("Upgrade-Insecure-Requests", "1");
+        $this->client->setServerParameter("Sec-Fetch-User", "?1");
+        $this->client->setServerParameter("Connection", "keep-alive");
+        $this->client->setServerParameter("Sec-Fetch-Dest", "document");
+
+    }
     // Set the page to be scraped
     public function setPage($page)
     {
@@ -156,7 +167,7 @@ class Scraper extends Model
         }
 
         $product->name = $this->productData["name"][0];
-        $product->price = $price;
+        $product->cdkeys_price = $price;
         $product->description = $this->productData["description"][0];
         $product->img_path = $this->productData["thumbnail_name"];
         $product->cdkeys_link = $page;
@@ -165,6 +176,12 @@ class Scraper extends Model
         $product->categories()->saveMany($cateArray);
         $product->platforms()->saveMany($platformArray);
 
+    }
+
+    public function updateProduct(){
+        $this->getProductData();
+        $this->productData['price'] = $this->getPrice();
+        return $this->productData;
     }
 
     public function buildList($url)
@@ -182,6 +199,7 @@ class Scraper extends Model
 
     public function scrapeProduct($page)
     {
+
         $this->setPage($page);
         $this->getPage();
         $this->getProductData();
@@ -208,5 +226,12 @@ class Scraper extends Model
         $this->getData("genres", ".product-attributes.secondary .product.attribute.genres .value");
         $this->getData("description", "#description");
         $this->getImage("thumbnail", ".product-content-top  img.gallery-placeholder__image");
+    }
+
+
+    public function getTestPage($method)
+    {
+//        return $this->crawler = $this->client;
+        return $this->crawler = $this->client->request($method, $this->page);
     }
 }

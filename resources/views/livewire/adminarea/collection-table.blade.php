@@ -2,8 +2,8 @@
 <table class="table table-hover table-centered mb-0 text-white">
     <thead>
     <tr>
-        <th>Product</th>
-        <th>Price</th>
+        <th>Image</th>
+        <th>Product Name</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -11,10 +11,10 @@
 
     @foreach($data as $item)
         <tr>
+            <td class="va-middle"><img width="100px" src="/storage/{{$item->img_path}}" alt=""></td>
             <td class="va-middle">{{$item->name}}</td>
-{{--            <td>£{{$item->price}}</td>--}}
-            <td class="va-middle"><span class="badge bg-warning text-dark">£{{$item->price}}</span></td>
-            <td>
+{{--            <td class="va-middle"><span class="badge bg-warning text-dark">£{{$item->price}}</span></td>--}}
+            <td class="va-middle">
                 <div class="d-flex justify-content-around align-items-center ">
                     <a class="text-white mx-1 py-2" href="/admin/games/{{$item->id}}"><i class="bi bi-eye"></i></a>
                     <a class="text-white mx-1 py-2" href="/admin/games/{{$item->id}}/edit" ><i class="bi bi-wrench"></i></a>

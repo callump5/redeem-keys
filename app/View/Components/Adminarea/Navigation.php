@@ -102,6 +102,50 @@ class Navigation extends Component
                     ]
                 ]
             ],
+            'scraping' => [
+                'title' => 'Scraping',
+                'type'  => 'group',
+                'items' => [
+                    'cdkeys' => [
+                        'title' => 'CD Keys',
+                        'id'    => 'cdkeys',
+                        'type'  => 'menu',
+                        'items' => [
+                            [
+                                'title' => 'Scrape Pages',
+                                'type'  => 'item',
+                                'url'   => '/build-and-scrape',
+                                'id'    => ''
+                            ],
+                            [
+                                'title' => 'Update Prices',
+                                'type'  => 'item',
+                                'url'   => '/build-and-scrape',
+                                'id'    => ''
+                            ],
+                        ]
+                    ],
+                    'g2a' => [
+                        'title' => 'G2A',
+                        'id'    => 'g2a',
+                        'type'  => 'menu',
+                        'items' => [
+                            [
+                                'title' => 'Scrape Pages',
+                                'type'  => 'item',
+                                'url'   => '/build-and-scrape',
+                                'id'    => ''
+                            ],
+                            [
+                                'title' => 'Update Prices',
+                                'type'  => 'item',
+                                'url'   => '/build-and-scrape',
+                                'id'    => ''
+                            ],
+                        ]
+                    ]
+                ]
+            ],
             'settings' => [
                 'title' => 'Settings',
                 'type'  => 'group',
