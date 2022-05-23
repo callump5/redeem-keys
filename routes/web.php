@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Scraper;
+use App\Models\Adminarea\Scrapers\G2A;
 
 use App\Http\Controllers\Frontend\StoreController;
 use App\Http\Controllers\Adminarea\DashboardController;
@@ -57,7 +57,7 @@ Route::get('/build-and-scrape', function() {
 });
 
 Route::get('/test', function() {
-    $scraper = new Scraper();
+    $scraper = new G2A();
     $scraper->setPage("https://www.g2a.com/search/api/v3/suggestions");
     $page = $scraper->getTestPage("GET");
 
