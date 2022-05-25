@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Models\Adminarea\Scrapers;
+namespace App\Models\Adminarea\Scrapers\Connections;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Adminarea\Scrapers\Platform;
 use App\Models\Adminarea\Scrapers\Scraper;
+use App\Models\Adminarea\Scrapers\Storage;
+use App\Models\Adminarea\Scrapers\Str;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CDKeys extends Scraper
 {

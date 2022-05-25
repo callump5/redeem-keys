@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models\Adminarea\Scrapers;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+namespace App\Models\Adminarea\Scrapers\Connections;
 
 use App\Models\Adminarea\Scrapers\Scraper;
+use App\Models\Adminarea\Scrapers\ScraperInterface;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use function dd;
 
-class G2A extends Scraper
+class G2A implements ScraperInterface
 {
     use HasFactory;
 

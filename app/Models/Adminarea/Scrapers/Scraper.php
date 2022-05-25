@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 use Storage;
 use Illuminate\Support\Str;
 
-abstract class Scraper extends Model
+class Scraper extends Model
 {
     use HasFactory;
 
@@ -44,8 +44,8 @@ abstract class Scraper extends Model
     }
 
     // Search the html with the passed classes
-    abstract public function getData() : string;
-
-    // Search the html with the passed classes
-    abstract public function getTestPage() : void;
+//    abstract public function getData() : string;
+//
+//    // Search the html with the passed classes
+//    abstract public function getTestPage() : void;
 }

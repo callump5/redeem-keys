@@ -1,16 +1,14 @@
 <?php
 
+use App\Http\Controllers\Adminarea\DashboardController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\Frontend\StoreController;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\PlatformController;
+use App\Models\Adminarea\Scrapers\Scraper;
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Adminarea\Scrapers\G2A;
-
-use App\Http\Controllers\Frontend\StoreController;
-use App\Http\Controllers\Adminarea\DashboardController;
-
-use App\Http\Controllers\GameController;
-use App\Http\Controllers\CollectionController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PlatformController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,7 +55,7 @@ Route::get('/build-and-scrape', function() {
 });
 
 Route::get('/test', function() {
-    $scraper = new G2A();
+    $scraper = new Scraper();
     $scraper->setPage("https://www.g2a.com/search/api/v3/suggestions");
     $page = $scraper->getTestPage("GET");
 
