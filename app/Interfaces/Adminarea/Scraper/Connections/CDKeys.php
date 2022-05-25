@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Adminarea\Scrapers\Connections;
+namespace App\Interfaces\Adminarea\Scraper\Connections;
 
 use App\Models\Adminarea\Scrapers\Platform;
 use App\Models\Adminarea\Scrapers\Scraper;

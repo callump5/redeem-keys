@@ -1,15 +1,27 @@
 <?php
 
-namespace App\Models\Adminarea\Scrapers\Connections;
+namespace App\Interfaces\Adminarea\Scraper\Connections;
 
-use App\Models\Adminarea\Scrapers\Scraper;
-use App\Models\Adminarea\Scrapers\ScraperInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use function dd;
+
+use App\Interfaces\Adminarea\Scraper\ScraperInterface;
 
 class G2A implements ScraperInterface
 {
-    use HasFactory;
+
+    public function setPageData($data): void
+    {
+        $this->pageData = $data;
+    }
+
+    public function getPageData() : string
+    {
+        return $this->pageData;
+    }
+
+    public function test(){
+        return 'test';
+    }
 
     public function getData() : string
     {

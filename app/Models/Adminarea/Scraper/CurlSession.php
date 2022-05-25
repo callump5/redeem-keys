@@ -1,22 +1,14 @@
 <?php
 
-namespace App\Models\Adminarea\Scrapers;
-use App\Models\Game;
+namespace App\Models\Adminarea\Scraper;
 
+use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use GuzzleHttp\Client;
-use Storage;
-use Illuminate\Support\Str;
 
-class Scraper extends Model
+class CurlSession extends Model
 {
     use HasFactory;
-
-    public $page = "";
-    public $pageContents = "";
-    public $links = [];
-    public $productData = [];
 
     public function __construct()
     {
@@ -25,27 +17,25 @@ class Scraper extends Model
                 "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:100.0) Gecko/20100101 Firefox/100.0",
                 "Accept"     => "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
                 "Accept-language" => "en-GB,en;q=0.5",
-                "Accept-Encoding" => "gzip, deflate, br"
+                "Accept-Encoding" => "gzip, deflate"
             ],
             'cookies' => true
         ]);
     }
 
     // Set the page to be scraped
-    public function setPage($page)
+    public function setPageUrl($page)
     {
-        $this->page = $page;
+        $this->pageUrl = $page;
+    }
+
+    public function getPageUrl() {
+        return $this->pageUrl;
     }
 
     // Retrieve the page
     public function getPage()
     {
-        $this->pageContents = $this->client->get($this->page);
+        return $this->client->get($this->pageUrl)->getBody()->getContents();
     }
-
-    // Search the html with the passed classes
-//    abstract public function getData() : string;
-//
-//    // Search the html with the passed classes
-//    abstract public function getTestPage() : void;
 }

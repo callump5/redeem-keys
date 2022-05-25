@@ -6,7 +6,9 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\Frontend\StoreController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\PlatformController;
-use App\Models\Adminarea\Scrapers\Scraper;
+
+use App\Models\Adminarea\Scraper\CurlSession;
+use App\Models\Adminarea\Scraper\Scraper;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,9 +57,26 @@ Route::get('/build-and-scrape', function() {
 });
 
 Route::get('/test', function() {
-    $scraper = new Scraper();
-    $scraper->setPage("https://www.g2a.com/search/api/v3/suggestions");
-    $page = $scraper->getTestPage("GET");
 
-    dd($page);
+    // Init Curl Session
+    $curlSession = new CurlSession();
+
+    $curlSession->setPageUrl('https://www.cdkeys.com/xbox-live/3-month-xbox-game-pass-ultimate-xbox-one-pc');
+//    $curlSession->setPageUrl('https://www.g2a.com/search/api/v3/suggestions');
+
+    // Init Scraper and pass CurlSession as Dependency
+    $scraper = new Scraper($curlSession);
+
+    // Set the driver to read the data
+    $scraper->setDriver('g2a');
+
+    // Get the driver
+    $driver = $scraper->getDriver();
+
+    // Pass the scraped page to the driver
+    $driver->setPageData($curlSession->getPage());
+
+    // Return
+    dd('123');
+
 });
