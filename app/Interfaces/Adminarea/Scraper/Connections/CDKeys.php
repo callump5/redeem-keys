@@ -2,79 +2,82 @@
 
 namespace App\Interfaces\Adminarea\Scraper\Connections;
 
-use App\Models\Adminarea\Scrapers\Platform;
-use App\Models\Adminarea\Scrapers\Scraper;
-use App\Models\Adminarea\Scrapers\Storage;
-use App\Models\Adminarea\Scrapers\Str;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class CDKeys extends Scraper
+use App\Interfaces\Adminarea\Scraper\ScraperInterface;
+use DOMDocument;
+use DomXPath;
+
+class CDKeys implements ScraperInterface
 {
-    use HasFactory;
+    private $_pageData;
+    private $_dom;
+    private $_finder;
 
-    public function getData($key, $classes)
+    // Set Page Data
+    public function setPageData($data): void
     {
-        $this->productData[$key] = $this->crawler->filter($classes)->each(function ($node) use($key) {
-            if($key == "description"){
-                return $node->html();
-            }
-            return $node->text();
-        });
+        $this->_pageData = $data;
     }
 
-    // Get an image
-    public function getImage($key, $classes)
+    // Get the page data
+    public function getPageData(): string
     {
-        $this->productData[$key] = $this->crawler->filter($classes)->each(function ($node) {
-            return $node->attr('src');
-        });
+        return $this->_pageData;
     }
 
-    // Get a Link
-    public function getLinks($key, $classes)
+    // Clean the page data
+    public function cleanPageData($page): void
     {
-        return $this->crawler->filter($classes)->each(function ($node) {
-            return $node->attr('href');
-        });
+        $this->_dom = new domDocument;
+        libxml_use_internal_errors(true);
+        $this->_dom->loadHTML($page, LIBXML_NOWARNING );
+        $this->_finder = new DomXPath($this->_dom);
     }
 
-    // Download an image and add to product data
-    public function downloadImage($url, $name)
+
+    // -- Self explanatory functions --------------------------/
+
+    public function getPriceFromPage(): float
     {
-        $image = file_get_contents($url, false, $this->userAgent);
-        $ext = explode(".", $url)[3];
-        $imagePath = "catalog/product-imgs/" . Str::slug($name[0], "-") . "." . $ext;
-        if(Storage::put('public/'. $imagePath, $image)){
-            $this->productData['thumbnail_name'] = $imagePath;
-        };
+        $dirtyPrice = $this->_finder->query("//div[@class='product-info-main']//span[@data-price-type='finalPrice']//span[@class='price']/text()")[0];
+        return floatval(str_replace("£", '', $dirtyPrice->data));
     }
 
-    // Get the price
-    public function getPrice(){
-        return floatval(explode("£", $this->productData['price'][1])[1]) ?? 0.00;
+    public function getNameFromPage(): string
+    {
+        $dirtyName = $this->_finder->query("//div[@class='product-info-main']//h1//span/text()")[0];
+        return $dirtyName->data;
     }
 
-    public function getParentPlatform(){
-        $platforms = [
-            'pc' => 'PC',
-            'xbox' => 'Xbox',
-            'xbox-live' => 'Xbox',
-            'playstation' => 'Playstation',
-            'nintendo' => 'Nintendo'
-        ];
 
-        foreach ($platforms as $key => $item) {
+    public function getDescriptionFromPage() : string
+    {
+        return '';
+    }
 
-            $category = explode("/", $this->page)[3];
+    public function getUrlFromPage() : string
+    {
+        return '';
+    }
 
+    public function getCategoriesFromPage(): array
+    {
+        return [];
+    }
 
-            if(isset($category) && strpos($category, $key) !== false){
+    public function getPlatformFromPage(): string
+    {
+        return '';
+    }
 
-                $platform = Platform::firstOrCreate(
-                    ['name' => trim($item)]
-                );
-                return $platform->id;
-            };
-        }
+    public function getPlatformRequirementFromPage() : string
+    {
+        return '';
+    }
+
+    public function getImageFromPage() : string
+    {
+        return '';
     }
 }

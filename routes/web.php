@@ -61,22 +61,16 @@ Route::get('/test', function() {
     // Init Curl Session
     $curlSession = new CurlSession();
 
-    $curlSession->setPageUrl('https://www.cdkeys.com/xbox-live/3-month-xbox-game-pass-ultimate-xbox-one-pc');
-//    $curlSession->setPageUrl('https://www.g2a.com/search/api/v3/suggestions');
-
     // Init Scraper and pass CurlSession as Dependency
     $scraper = new Scraper($curlSession);
 
-    // Set the driver to read the data
-    $scraper->setDriver('g2a');
+    // Set the interface for the scraper
+    $scraper->setInterface('cdkeys');
+//    $scraper->setInterface('g2a');
 
-    // Get the driver
-    $driver = $scraper->getDriver();
+    // Scrape Product
+    $scraper->scrapeProduct('https://www.cdkeys.com/xbox-live/3-month-xbox-game-pass-ultimate-xbox-one-pc');
+//    $scraper->scrapeProduct('https://www.g2a.com/search/api/v3/suggestions?include[]=categories&itemsPerPage=4&phrase=FIFA 20 Standard Edition Origin Key GLOBAL&currency=GBP');
 
-    // Pass the scraped page to the driver
-    $driver->setPageData($curlSession->getPage());
-
-    // Return
-    dd('123');
 
 });

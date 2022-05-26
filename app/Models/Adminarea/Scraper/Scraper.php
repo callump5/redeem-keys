@@ -13,9 +13,10 @@ class Scraper extends Model
     use HasFactory;
 
     public $curlSession;
-    public $driver;
+    public $interface;
 
-    private $drivers = [
+    // Array of available interface
+    private $interfaces = [
         "g2a" => \App\Interfaces\Adminarea\Scraper\Connections\G2A::class,
         "cdkeys" => \App\Interfaces\Adminarea\Scraper\Connections\CDKeys::class
     ];
@@ -28,18 +29,43 @@ class Scraper extends Model
         $this->curlSession = $curlSession;
     }
 
-    public function setDriver($text) {
-        $this->driver = $text;
+    // Set the interface to be used
+    public function setInterface($text)
+    {
+        $this->interface = $text;
     }
 
-    public function getDriver() {
-        return new $this->drivers[$this->driver]();
+    // Return the interface
+    public function getInterface()
+    {
+        return new $this->interfaces[$this->interface]();
     }
 
-    public function scrape() {
-        $this->getDriver()->scrape($this->curlSession);
+    // Scrape product, the data will then be passed to another function to create/update
+    public function scrapeProduct($link)
+    {
+        // Set the page URL
+        $this->curlSession->setPageUrl($link);
+
+        // Retrieve the page data
+        $page = $this->curlSession->getPageData();
+
+        // Init the interface
+        $interface = $this->getInterface();
+
+        // Pass the page data over the interface to clean
+        $interface->cleanPageData($page);
+
+        // Get the needed values
+        $data = [
+            'name' => $interface->getNameFromPage(),
+            'price' => $link,
+            'url' => $interface->getUrlFromPage(),
+            'description' => $interface->getDescriptionFromPage(),
+            'platform' => $interface->getPlatformFromPage()
+        ];
+
+        dd($data);
     }
-
-
 
 }

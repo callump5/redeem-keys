@@ -24,9 +24,9 @@ class CurlSession extends Model
     }
 
     // Set the page to be scraped
-    public function setPageUrl($page)
+    public function setPageUrl($link)
     {
-        $this->pageUrl = $page;
+        $this->pageUrl = $link;
     }
 
     public function getPageUrl() {
@@ -34,7 +34,7 @@ class CurlSession extends Model
     }
 
     // Retrieve the page
-    public function getPage()
+    public function getPageData()
     {
         return $this->client->get($this->pageUrl)->getBody()->getContents();
     }
