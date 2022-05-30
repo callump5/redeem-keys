@@ -65,12 +65,12 @@ Route::get('/test', function() {
     $scraper = new Scraper($curlSession);
 
     // Set the interface for the scraper
-    $scraper->setInterface('cdkeys');
-//    $scraper->setInterface('g2a');
+//    $scraper->setInterface('cdkeys');
+    $scraper->setInterface('g2a');
 
     // Scrape Product
-    $scraper->scrapeProduct('https://www.cdkeys.com/xbox-live/3-month-xbox-game-pass-ultimate-xbox-one-pc');
-//    $scraper->scrapeProduct('https://www.g2a.com/search/api/v3/suggestions?include[]=categories&itemsPerPage=4&phrase=FIFA 20 Standard Edition Origin Key GLOBAL&currency=GBP');
+//    $scraper->scrapeProduct('https://www.cdkeys.com/pc/sniper-elite-5-pc-ww-steam');
+    $scraper->scrapeProduct('https://www.g2a.com/search/api/v3/suggestions?include[]=categories&itemsPerPage=4&phrase=Sniper Elite 5&currency=GBP');
 
 
 });

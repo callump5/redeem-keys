@@ -15,7 +15,10 @@ class Game extends Model
     protected $fillable = [
         'name',
         'description',
-        'price'
+        'cdkeys_price',
+        'g2a_price',
+        'cdkeys_link',
+        'g2a_link',
     ];
 
 

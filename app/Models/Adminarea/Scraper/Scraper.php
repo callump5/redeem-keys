@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Adminarea\Scraper\CurlSession;
 use App\Interfaces\Adminarea\Scraper\ScraperInterface;
+use App\Models\Game;
 
 class Scraper extends Model
 {
@@ -59,13 +60,23 @@ class Scraper extends Model
         // Get the needed values
         $data = [
             'name' => $interface->getNameFromPage(),
-            'price' => $link,
-            'url' => $interface->getUrlFromPage(),
+            $this->interface . '_price' => $interface->getPriceFromPage(),
+            $this->interface . '_link' => $link,
             'description' => $interface->getDescriptionFromPage(),
             'platform' => $interface->getPlatformFromPage()
         ];
 
-        dd($data);
+
+        $game = Game::updateOrCreate(
+            [$this->interface . '_link' => $link],
+            [
+                'name' => $interface->getNameFromPage(),
+                $this->interface . '_price' => $interface->getPriceFromPage()
+            ]
+        );
+//        $game = Game::where(, $link)->get();
+
+        dd($game);
     }
 
 }
