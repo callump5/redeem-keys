@@ -1,9 +1,13 @@
 
-.bg-main { background-color: #151521;}
+.bg-main { background-color: #212121}
 
 .bg-secondary,
 .bg-dark{
-    background-color: #1a1a27 !important;
+    background-color: #424242 !important;
+}
+
+.bg-accent {
+    background-color: #616161 !important;
 }
 
 .vh-100 {
@@ -114,3 +118,6 @@ form {
     }
 }
 
+.card-tabs a:not(.active){
+    opacity: .5;
+}

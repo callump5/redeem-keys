@@ -109,21 +109,8 @@ class Navigation extends Component
                     'cdkeys' => [
                         'title' => 'CD Keys',
                         'id'    => 'cdkeys',
-                        'type'  => 'menu',
-                        'items' => [
-                            [
-                                'title' => 'Scrape Pages',
-                                'type'  => 'item',
-                                'url'   => '/build-and-scrape',
-                                'id'    => ''
-                            ],
-                            [
-                                'title' => 'Update Prices',
-                                'type'  => 'item',
-                                'url'   => '/build-and-scrape',
-                                'id'    => ''
-                            ],
-                        ]
+                        'type'  => 'item',
+                        'url'   => '/admin/scraper/cdkeys/index'
                     ],
                     'g2a' => [
                         'title' => 'G2A',
@@ -133,7 +120,7 @@ class Navigation extends Component
                             [
                                 'title' => 'Scrape Pages',
                                 'type'  => 'item',
-                                'url'   => '/build-and-scrape',
+                                'url'   => '/admin/build-and-scrape',
                                 'id'    => ''
                             ],
                             [

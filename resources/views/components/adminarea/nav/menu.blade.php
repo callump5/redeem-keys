@@ -8,7 +8,7 @@
         <div class="accordion-body no-padd">
             <ul class="no-padd no no-marg list-unstyled pb-1">
                 @foreach($menu["items"] as $item)
-                    <x-adminarea.menu-item :item=$item></x-adminarea.menu-item>
+                    <x-adminarea.nav.menu-item :item=$item></x-adminarea.nav.menu-item>
                 @endforeach
             </ul>
         </div>

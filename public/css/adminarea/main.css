@@ -1,10 +1,14 @@
 .bg-main {
-  background-color: #151521;
+  background-color: #212121;
 }
 
 .bg-secondary,
 .bg-dark {
-  background-color: #1a1a27 !important;
+  background-color: #424242 !important;
+}
+
+.bg-accent {
+  background-color: #616161 !important;
 }
 
 .vh-100 {
@@ -86,6 +90,10 @@ form .select2-selection__choice span {
 }
 form .form-control:focus {
   box-shadow: none !important;
+}
+
+.card-tabs a:not(.active) {
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=main.css.map */

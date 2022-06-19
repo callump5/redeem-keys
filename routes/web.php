@@ -11,6 +11,9 @@ use App\Models\Adminarea\Scraper\CurlSession;
 use App\Models\Adminarea\Scraper\Scraper;
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\Adminarea\ScraperController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +31,7 @@ Route::get('/', [StoreController::class, 'home']);
 
 // Admin Views
 Route::prefix('admin')->group(function () {
+
     Auth::routes();
 
     Route::group(['middleware' => ['auth']], function () {
@@ -35,6 +39,12 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'home'])
             ->name('admin.dashboard');
 
+        Route::get('/scraper/{driver}', [ScraperController::class, 'index']);
+        
+        Route::get('/scraper/{driver}/wizard/product', [ScraperController::class, 'productWizard']);
+        Route::get('/scraper/{driver}/wizard/category', [ScraperController::class, 'categoryWizard']);
+        
+        
         Route::resource('games', GameController::class);
         Route::resource('platforms', PlatformController::class);
         Route::resource('collections', CollectionController::class);
@@ -65,12 +75,12 @@ Route::get('/test', function() {
     $scraper = new Scraper($curlSession);
 
     // Set the interface for the scraper
-//    $scraper->setInterface('cdkeys');
-    $scraper->setInterface('g2a');
+    $scraper->setInterface('cdkeys');
+//    $scraper->setInterface('g2a');
 
     // Scrape Product
-//    $scraper->scrapeProduct('https://www.cdkeys.com/pc/sniper-elite-5-pc-ww-steam');
-    $scraper->scrapeProduct('https://www.g2a.com/search/api/v3/suggestions?include[]=categories&itemsPerPage=4&phrase=Sniper Elite 5&currency=GBP');
+    $scraper->scrapeProduct('https://www.cdkeys.com/pc/sniper-elite-5-pc-ww-steam');
+//    $scraper->scrapeProduct('https://www.g2a.com/search/api/v3/suggestions?include[]=categories&itemsPerPage=4&phrase=Sniper Elite 5&currency=GBP');
 
 
 });
